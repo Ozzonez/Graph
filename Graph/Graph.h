@@ -2,7 +2,7 @@
 #define GRAPH_H
 #include <iostream>
 
-class Gaph
+class Graph
 {
     struct vertex
     {
