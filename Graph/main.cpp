@@ -2,13 +2,15 @@
 #include "Graph.h"
 #include "Vertex.h"
 
+
 using namespace std;
 
 
 int main()
 {
-    Graph a;
-    edge *p;
+
+    Graph<char> a;
+    edge<char> *p;
     a.load();
 
     for(int i = 0; i < a.numVer; i++)
@@ -25,7 +27,7 @@ int main()
 
 
 
-    a.BF(2);
+    a.BF('2');
 
 
     cout<<a.cost[0]<<endl;
@@ -38,6 +40,6 @@ int main()
 
 
 
-    //cout << a.V[1].first->vertex;
+
 
 }

@@ -4,11 +4,11 @@
 #include "Vertex.h"
 using namespace std;
 
-
+template <typename T>
 class Graph
 {
     public:
-    Vertex *V;
+    Vertex<T> *V;
 
     int *cost;
     int *predecessor;
@@ -20,7 +20,8 @@ class Graph
 
     int load();
     void initialize();
-    int BF(int);
+    int BF(T);
+    int searchForNr(T a);
 
 
 };

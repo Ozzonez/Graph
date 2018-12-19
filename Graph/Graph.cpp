@@ -6,11 +6,12 @@
 #include "Vertex.h"
 
 using namespace std;
-
-int Graph::load()
+template <typename T>
+int Graph<T>::load()
 {
-
-    int a, b, w;
+    T a, b;
+    int w;
+    int number, nr2;
     fstream file;
     file.open("D.txt", ios::in);
 
@@ -23,14 +24,22 @@ int Graph::load()
     file>>numVer;
     file>>numEdg;
 
-    V = new Vertex [numVer];
+    V = new Vertex<T> [numVer];
     cost = new int [numVer];
-    predecessor = new int [numVer];
+    predecessor = new int [numVer]; // CO Z TYM ????
 
     this->initialize();
 
     //for(int i=0;i<numEdg;i++)
     //while(file.eof()!=1)
+
+    for(int i=0;i<numVer;i++)
+    {
+        file>>V[i].myVertex;
+    }
+
+
+
     for(int i=0;i<numEdg;i++)
     {
 
@@ -39,15 +48,17 @@ int Graph::load()
     file>>b;
     file>>w;
 
-    V[a].addNewElement(b, w);
+    number=this->searchForNr(a);
+    nr2=this->searchForNr(b);
+    V[number].addNewElement(b, w, nr2);
 
 
     }
 
     return 1;
 }
-
-Graph::Graph()
+template <typename T>
+Graph<T>::Graph()
 {
     V = NULL;
     cost=NULL;
@@ -56,11 +67,19 @@ Graph::Graph()
 
 
 }
-
-int Graph::BF(int startingVertex)
+template <typename T>
+int Graph<T>::BF(T startingVertex)
 {
-    edge *temp;
-    cost[startingVertex]=0;
+    edge <T> *temp;
+    int number;
+
+    number=this->searchForNr(startingVertex);
+    cout<<number<<endl;
+
+
+    cost[number]=0;
+
+
 
 
     for(int i=0; i<numVer; i++)
@@ -69,10 +88,10 @@ int Graph::BF(int startingVertex)
         {
             for(temp=V[j].first/*trzeba gettera*/; temp!=NULL; temp=temp->next)
         {
-            if(cost[temp->vertex]>cost[j]+temp->weight)
+            if(cost[temp->number_vertex]>cost[j]+temp->weight)
             {
-                cost[temp->vertex]=cost[j]+temp->weight;
-                predecessor[temp->vertex]=j;
+                cost[temp->number_vertex]=cost[j]+temp->weight;
+                predecessor[temp->number_vertex]=j;
             }
         }
         }
@@ -85,7 +104,7 @@ int Graph::BF(int startingVertex)
     {
         for(temp=V[j].first; temp!=NULL; temp=temp->next)
         {
-            if(cost[temp->vertex]>cost[j]+temp->weight)
+            if(cost[temp->number_vertex]>cost[j]+temp->weight)
                 return 0;
         }
     }
@@ -101,8 +120,8 @@ int Graph::BF(int startingVertex)
 
 
 }
-
-void Graph::initialize()
+template <typename T>
+void Graph<T>::initialize()
 {
     for(int i=0; i<numVer; i++)
     {
@@ -110,3 +129,23 @@ void Graph::initialize()
         predecessor[i]=-1;
     }
 }
+
+
+template <typename T>
+int Graph<T>::searchForNr(T a)
+{
+    for(int i=0; i<numVer; i++)
+    {
+        if(V[i].myVertex==a)
+        {
+            return i;
+        }
+    }
+}
+
+
+
+template class Graph<int>;
+template class Graph<double>;
+template class Graph<string>;
+template class Graph<char>;
