@@ -8,12 +8,14 @@ struct edge
     edge * next;
     int vertex;
     int weight;
+    //int number_vertex;
     };
 
 class Vertex
 {
     public:
 
+    //int MyNumber;
     edge *first;
 
     public:

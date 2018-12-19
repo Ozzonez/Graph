@@ -13,7 +13,7 @@ int main()
 
     for(int i = 0; i < a.numVer; i++)
     {
-    cout << "Vertex[" << i << "] =";
+    cout << "Vertex number " << i << " =";
     p = a.V[i].first;
     while(p)
     {

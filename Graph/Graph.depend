@@ -7,10 +7,8 @@
 	"Graph.h"
 	"Vertex.h"
 
-1545233666 source:c:\users\dadej\desktop\rep\pr2\graph\graph\main.cpp
+1545235099 source:c:\users\dadej\desktop\rep\pr2\graph\graph\main.cpp
 	<iostream>
-	"Graph.h"
-	"Vertex.h"
 
 1545163251 source:c:\users\dadej\desktop\rep\pr2\graph\graph\interface.cpp
 
@@ -25,6 +23,6 @@
 	<iostream>
 	"Vertex.h"
 
-1545231988 c:\users\dadej\desktop\rep\pr2\graph\graph\vertex.h
+1545234878 c:\users\dadej\desktop\rep\pr2\graph\graph\vertex.h
 	<iostream>
 
