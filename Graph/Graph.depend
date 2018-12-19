@@ -1,6 +1,30 @@
 # depslib dependency file v1.0
-1545072697 source:c:\users\dadej\desktop\rep\pr2\graph\graph\graph.cpp
+1545180678 source:c:\users\dadej\desktop\rep\pr2\graph\graph\graph.cpp
+	<iostream>
+	<vector>
+	<cstdlib>
+	<fstream>
+	"Graph.h"
+	"Vertex.h"
 
-1545156082 source:c:\users\dadej\desktop\rep\pr2\graph\graph\main.cpp
+1545180779 source:c:\users\dadej\desktop\rep\pr2\graph\graph\main.cpp
+	<iostream>
+	"Graph.h"
+	"Vertex.h"
+
+1545163251 source:c:\users\dadej\desktop\rep\pr2\graph\graph\interface.cpp
+
+1545180602 source:c:\users\dadej\desktop\rep\pr2\graph\graph\vertex.cpp
+	<iostream>
+	<vector>
+	<cstdlib>
+	<fstream>
+	"Vertex.h"
+
+1545179516 c:\users\dadej\desktop\rep\pr2\graph\graph\graph.h
+	<iostream>
+	"Vertex.h"
+
+1545180942 c:\users\dadej\desktop\rep\pr2\graph\graph\vertex.h
 	<iostream>
 

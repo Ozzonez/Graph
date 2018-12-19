@@ -22,6 +22,10 @@
 		</Compiler>
 		<Unit filename="Graph.cpp" />
 		<Unit filename="Graph.h" />
+		<Unit filename="Interface.cpp" />
+		<Unit filename="Interface.h" />
+		<Unit filename="Vertex.cpp" />
+		<Unit filename="Vertex.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
