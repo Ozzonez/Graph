@@ -11,9 +11,9 @@ int main()
     edge *p;
     a.load();
 
-    /*for(int i = 0; i < a.numVer; i++)
+    for(int i = 0; i < a.numVer; i++)
     {
-    cout << "A[" << i << "] =";
+    cout << "Vertex[" << i << "] =";
     p = a.V[i].first;
     while(p)
     {
@@ -21,9 +21,23 @@ int main()
       p = p->next;
     }
     cout << endl;
-    }*/
+    }
 
 
-    cout << a.V[0].first->vertex;
+
+    a.BF(2);
+
+
+    cout<<a.cost[0]<<endl;
+    cout<<a.cost[1]<<endl;
+    cout<<a.cost[2]<<endl;
+    cout<<a.cost[3]<<endl;
+
+
+
+
+
+
+    //cout << a.V[1].first->vertex;
 
 }

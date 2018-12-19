@@ -18,7 +18,9 @@ void Vertex::addNewElement(int a, int b)
 
     if(first==NULL)
     {
+
         first=newEl;
+        first->next=NULL;
     }
     else
     {
@@ -39,7 +41,7 @@ void Vertex::addNewElement(int a, int b)
 
 Vertex::Vertex()
 {
-     //first->next=NULL;
-    //first=NULL;
+    //first->next=NULL;
+    first=NULL;
 
 }

@@ -11,7 +11,7 @@ class Graph
     Vertex *V;
 
     int *cost;
-    int *ancestor;
+    int *predecessor;
     int numVer, numEdg;
 
     public:
@@ -19,7 +19,8 @@ class Graph
     Graph();
 
     int load();
-
+    void initialize();
+    int BF(int);
 
 
 };
