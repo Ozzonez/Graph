@@ -48,6 +48,30 @@ Vertex<T>::Vertex()
 
 }
 
+template <typename T>
+void Vertex<T>::setMyVertex(T a)
+{
+    myVertex=a;
+}
+
+template <typename T>
+edge<T>* Vertex<T>::getFirst()
+{
+    return first;
+}
+
+template <typename T>
+T Vertex<T>::getMyVertex()
+{
+    return myVertex;
+}
+
+
+
+
+
+
+
 template class Vertex<int>;
 template class Vertex<double>;
 template class Vertex<string>;

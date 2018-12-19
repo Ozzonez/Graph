@@ -9,7 +9,7 @@ using namespace std;
 template <typename T>
 int Graph<T>::load()
 {
-    T a, b;
+    T a, b, c;
     int w;
     int number, nr2;
     fstream file;
@@ -35,7 +35,8 @@ int Graph<T>::load()
 
     for(int i=0;i<numVer;i++)
     {
-        file>>V[i].myVertex;
+        file>>c;
+        V[i].setMyVertex(c);
     }
 
 
@@ -50,6 +51,7 @@ int Graph<T>::load()
 
     number=this->searchForNr(a);
     nr2=this->searchForNr(b);
+
     V[number].addNewElement(b, w, nr2);
 
 
@@ -60,7 +62,7 @@ int Graph<T>::load()
 template <typename T>
 Graph<T>::Graph()
 {
-    V = NULL;
+    V=NULL;
     cost=NULL;
     predecessor=NULL;
 
@@ -70,23 +72,18 @@ Graph<T>::Graph()
 template <typename T>
 int Graph<T>::BF(T startingVertex)
 {
-    edge <T> *temp;
+    edge<T> *temp;
     int number;
 
     number=this->searchForNr(startingVertex);
-    cout<<number<<endl;
-
 
     cost[number]=0;
-
-
-
 
     for(int i=0; i<numVer; i++)
     {
         for(int j=0; j<numVer; j++)
         {
-            for(temp=V[j].first/*trzeba gettera*/; temp!=NULL; temp=temp->next)
+            for(temp=V[j].getFirst(); temp!=NULL; temp=temp->next)
         {
             if(cost[temp->number_vertex]>cost[j]+temp->weight)
             {
@@ -98,26 +95,15 @@ int Graph<T>::BF(T startingVertex)
 
     }
 
-
-
     for(int j=0;j<numVer;j++)
     {
-        for(temp=V[j].first; temp!=NULL; temp=temp->next)
+        for(temp=V[j].getFirst(); temp!=NULL; temp=temp->next)
         {
             if(cost[temp->number_vertex]>cost[j]+temp->weight)
                 return 0;
         }
     }
-
-
-
-
-
-
-
-
-
-
+    return 1;
 
 }
 template <typename T>
@@ -136,12 +122,15 @@ int Graph<T>::searchForNr(T a)
 {
     for(int i=0; i<numVer; i++)
     {
-        if(V[i].myVertex==a)
+        if(V[i].getMyVertex()==a)
         {
             return i;
         }
     }
+    exit(0); // Error in entering graph data
 }
+
+
 
 
 

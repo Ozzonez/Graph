@@ -7,7 +7,7 @@ using namespace std;
 template <typename T>
 class Graph
 {
-    public:
+    //public:
     Vertex<T> *V;
 
     int *cost;
