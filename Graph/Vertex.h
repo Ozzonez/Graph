@@ -15,7 +15,7 @@ struct edge
 template <typename T>
 class Vertex
 {
-    //public:
+
 
     T myVertex;
     int myNumber;
@@ -30,6 +30,7 @@ class Vertex
 
     edge<T>* getFirst();
     T getMyVertex();
+    void setMyNumber(int);
     int getWeight();
     int getNumber_vertex();
 

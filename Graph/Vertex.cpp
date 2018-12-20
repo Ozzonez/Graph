@@ -66,6 +66,11 @@ T Vertex<T>::getMyVertex()
     return myVertex;
 }
 
+template <typename T>
+void Vertex<T>::setMyNumber(int a)
+{
+    myNumber=a;
+}
 
 
 

@@ -37,6 +37,7 @@ int Graph<T>::load()
     {
         file>>c;
         V[i].setMyVertex(c);
+        V[i].setMyNumber(i); //setter!!!
     }
 
 
@@ -74,25 +75,29 @@ int Graph<T>::BF(T startingVertex)
 {
     edge<T> *temp;
     int number;
+    bool h;
 
     number=this->searchForNr(startingVertex);
 
     cost[number]=0;
 
-    for(int i=0; i<numVer; i++)
+    for(int i=1; i<numVer; i++)
     {
+        h=true;
         for(int j=0; j<numVer; j++)
         {
             for(temp=V[j].getFirst(); temp!=NULL; temp=temp->next)
         {
             if(cost[temp->number_vertex]>cost[j]+temp->weight)
             {
+                h=false;
                 cost[temp->number_vertex]=cost[j]+temp->weight;
                 predecessor[temp->number_vertex]=j;
             }
         }
         }
-
+        if(h)
+        return 1;
     }
 
     for(int j=0;j<numVer;j++)
@@ -130,6 +135,37 @@ int Graph<T>::searchForNr(T a)
     exit(0); // Error in entering graph data
 }
 
+template <typename T>
+void Graph<T>::BFCD(T startingVertex)
+{
+    edge<T> *tmp;
+
+    if(this->BF(startingVertex)==1)
+    {
+
+        T *s=NULL;
+        s = new T [numVer];
+        int i=0;
+
+        for(int j=0; j<numVer; j++)
+        {
+            cout<<V[j].getMyVertex()<<": ";
+            tmp=V[j].getFirst();
+
+
+            for(int k=j;k!=-1;k=predecessor[k])
+                s[i++]=V[k].getMyVertex();
+
+            while(i)
+                cout<<s[--i]<<" ";
+
+                cout<<"$"<<cost[j]<<endl;
+        }
+
+    }
+    else
+        cout << "Negative cycle found!" << endl;
+}
 
 
 

@@ -12,7 +12,7 @@ int main()
     Graph<char> a;
     edge<char> *p;
     a.load();
-/*
+
     for(int i = 0; i < a.numVer; i++)
     {
     cout << "Vertex number " << i << " =";
@@ -25,18 +25,13 @@ int main()
     cout << endl;
     }
 
-*/
-
-    a.BF('2');
 
 
-   /* cout<<a.cost[0]<<endl;
-    cout<<a.cost[1]<<endl;
-    cout<<a.cost[2]<<endl;
-    cout<<a.cost[3]<<endl;
+    a.BFCD('2');
 
-*/
 
+
+    cout<<endl;
 
 
 

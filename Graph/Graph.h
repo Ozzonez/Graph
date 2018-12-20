@@ -7,7 +7,7 @@ using namespace std;
 template <typename T>
 class Graph
 {
-    //public:
+
     Vertex<T> *V;
 
     int *cost;
@@ -21,7 +21,9 @@ class Graph
     int load();
     void initialize();
     int BF(T);
+    void BFCD(T);
     int searchForNr(T a);
+
 
 
 };
