@@ -26,6 +26,7 @@ class Vertex
 
     void addNewElement(T, int, int);
     Vertex();
+    ~Vertex();
     void setMyVertex(T);
 
     edge<T>* getFirst();

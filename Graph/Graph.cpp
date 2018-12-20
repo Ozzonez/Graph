@@ -66,10 +66,16 @@ Graph<T>::Graph()
     V=NULL;
     cost=NULL;
     predecessor=NULL;
-
-
-
 }
+
+template <typename T>
+Graph<T>::~Graph()
+{
+    delete V;
+    delete cost;
+    delete predecessor;
+}
+
 template <typename T>
 int Graph<T>::BF(T startingVertex)
 {
@@ -135,38 +141,31 @@ int Graph<T>::searchForNr(T a)
     exit(0); // Error in entering graph data
 }
 
+
+
 template <typename T>
-void Graph<T>::BFCD(T startingVertex)
+int Graph<T>::getNumVer()
 {
-    edge<T> *tmp;
-
-    if(this->BF(startingVertex)==1)
-    {
-
-        T *s=NULL;
-        s = new T [numVer];
-        int i=0;
-
-        for(int j=0; j<numVer; j++)
-        {
-            cout<<V[j].getMyVertex()<<": ";
-            tmp=V[j].getFirst();
-
-
-            for(int k=j;k!=-1;k=predecessor[k])
-                s[i++]=V[k].getMyVertex();
-
-            while(i)
-                cout<<s[--i]<<" ";
-
-                cout<<"$"<<cost[j]<<endl;
-        }
-
-    }
-    else
-        cout << "Negative cycle found!" << endl;
+    return numVer;
 }
 
+template <typename T>
+Vertex<T>* Graph<T>::getV()
+{
+    return V;
+}
+
+template <typename T>
+int* Graph<T>::getPredecessor()
+{
+    return predecessor;
+}
+
+template <typename T>
+int* Graph<T>::getCost()
+{
+    return cost;
+}
 
 
 

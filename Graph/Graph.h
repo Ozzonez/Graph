@@ -17,12 +17,16 @@ class Graph
     public:
 
     Graph();
-
+    ~Graph();
     int load();
     void initialize();
     int BF(T);
     void BFCD(T);
     int searchForNr(T a);
+    int getNumVer();
+    Vertex<T>* getV();
+    int* getPredecessor();
+    int* getCost();
 
 
 

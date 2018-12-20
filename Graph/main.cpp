@@ -1,40 +1,15 @@
 #include <iostream>
 #include "Graph.h"
 #include "Vertex.h"
-
+#include "Interface.h"
 
 using namespace std;
 
 
 int main()
 {
-
-    Graph<char> a;
-    edge<char> *p;
+    Interface<int> I;
+    Graph<int> a;
     a.load();
-
-    for(int i = 0; i < a.numVer; i++)
-    {
-    cout << "Vertex number " << i << " =";
-    p = a.V[i].first;
-    while(p)
-    {
-      cout << "   " << p->vertex;
-      p = p->next;
-    }
-    cout << endl;
-    }
-
-
-
-    a.BFCD('2');
-
-
-
-    cout<<endl;
-
-
-
-
-
+    I.mainMenu(a);
 }

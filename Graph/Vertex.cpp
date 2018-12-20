@@ -43,9 +43,22 @@ void Vertex<T>::addNewElement(T b, int w, int nr)
 template <typename T>
 Vertex<T>::Vertex()
 {
-    //first->next=NULL;
     first=NULL;
+}
 
+template <typename T>
+Vertex<T>::~Vertex()
+{
+    edge<T> *temp;
+    edge<T> *tmp;
+
+    while(first!=NULL)
+    {
+        tmp=first;
+        first=first->next;
+        tmp->next=NULL;
+        delete tmp;
+    }
 }
 
 template <typename T>
