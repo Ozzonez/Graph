@@ -3,27 +3,35 @@
 #include <iostream>
 using namespace std;
 
+template <typename T>
 struct edge
     {
     edge * next;
-    int vertex;
+    T vertex;
     int weight;
-    //int number_vertex;
+    int number_vertex;
     };
-
+//Class that holds vertex's number and neighbours
+template <typename T>
 class Vertex
 {
+
+    T myVertex;
+    int myNumber;
+    edge <T> *first;
+
     public:
 
-    //int MyNumber;
-    edge *first;
 
-    public:
-
-    void addNewElement(int, int);
+    void addNewElement(T, int, int);
     Vertex();
-    //void setVertexAndWeight(int, int);
-
+    ~Vertex();
+    void setMyVertex(T);
+    edge<T>* getFirst();
+    T getMyVertex();
+    void setMyNumber(int);
+    int getWeight();
+    int getNumber_vertex();
 
 };
 
