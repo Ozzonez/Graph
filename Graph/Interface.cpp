@@ -3,23 +3,30 @@
 #include "Interface.h"
 #include "Graph.h"
 #include "Vertex.h"
+#include "Test.h"
 
 using namespace std;
 
-template <typename T>
-void Interface<T>::mainMenu(Graph<T> a)
+
+void Interface::mainMenu()
 {
     help=1;
-    T b;
-    edge<T> *p;
-    //Vertex<T> *temp;
-    //temp=a.getV();
+    edge<int> *p;
+    Graph<int> a;
+    a.load();
+    int b, v;
+    Test t1;
 
     while(1)
     {
     help=1;
     cout<<"Graph and Bellman-Ford algorithm implementation:"<<endl;
-
+    cout<<"1 - Test"<<endl;
+    cout<<"2 - Bellman-Ford algorithm"<<endl;
+    cin>>v;
+    system("cls");
+    if(v==2)
+    {
     for(int i = 0; i < a.getNumVer(); i++)
     {
     cout << "Vertex number " << a.getV()[i].getMyVertex() << " =";
@@ -33,60 +40,20 @@ void Interface<T>::mainMenu(Graph<T> a)
     cout << endl;
     }
 
-        cout<<"1 - Bellman-Ford algorithm on loaded graph, write starting vertex"<<endl;
+        cout<<"Bellman-Ford algorithm on loaded graph, write starting vertex"<<endl;
         cin>>b;
 
-
-
-
-            a.BF(b);
-
-            for(int j=0; j<a.getNumVer(); j++)
-            {
-                if(a.getCost()[j]<0)
-                {
-                    help=0;
-                    break;
-                }
-            }
-
-
-            if(help==1)
-            {
-            T *s=NULL;
-            s = new T [a.getNumVer()];
-            int i=0;
-
-            for(int j=0; j<a.getNumVer(); j++)
-            {
-            cout<<a.getV()[j].getMyVertex()<<": ";
-            p=a.getV()[j].getFirst();
-
-
-            for(int k=j;k!=-1;k=a.getPredecessor()[k])
-                s[i++]=a.getV()[k].getMyVertex();
-
-            while(i)
-                cout<<s[--i]<<" ";
-
-                cout<<"$"<<a.getCost()[j]<<endl;
-            }
-            delete [] s;
-            }
-            else
-            cout << "Negative cycle found!" << endl;
-
-
-            help=1;
-
-            a.initialize();
-
+        a.BF(b);
+        a.Show(b);
+        a.initialize();
+    }
+    if(v==1)
+    {
+        system("cls");
+        t1.testing();
+    }
 
     }
 }
 
 
-template class Interface<int>;
-template class Interface<double>;
-template class Interface<string>;
-template class Interface<char>;

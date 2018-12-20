@@ -8,8 +8,6 @@ using namespace std;
 
 int main()
 {
-    Interface<int> I;
-    Graph<int> a;
-    a.load();
-    I.mainMenu(a);
+    Interface I;
+    I.mainMenu();
 }

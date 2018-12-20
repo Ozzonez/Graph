@@ -16,7 +16,6 @@ template <typename T>
 class Vertex
 {
 
-
     T myVertex;
     int myNumber;
     edge <T> *first;
@@ -28,15 +27,11 @@ class Vertex
     Vertex();
     ~Vertex();
     void setMyVertex(T);
-
     edge<T>* getFirst();
     T getMyVertex();
     void setMyNumber(int);
     int getWeight();
     int getNumber_vertex();
-
-
-
 
 };
 

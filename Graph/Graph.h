@@ -21,14 +21,14 @@ class Graph
     int load();
     void initialize();
     int BF(T);
-    void BFCD(T);
+    void Show(T);
     int searchForNr(T a);
     int getNumVer();
     Vertex<T>* getV();
     int* getPredecessor();
     int* getCost();
     void testingArguments();
-
+    void showGraph();
 
 };
 

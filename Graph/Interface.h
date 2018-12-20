@@ -6,13 +6,13 @@
 
 using namespace std;
 //class responsible for menu
-template <typename T>
+
 class Interface
 {
     int help;
 
     public:
-    void mainMenu(Graph<T>);
+    void mainMenu();
 };
 
 

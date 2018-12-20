@@ -118,6 +118,51 @@ int Graph<T>::BF(T startingVertex)
     return 1;
 
 }
+
+template <typename T>
+void Graph<T>::Show(T startingVertex)
+{
+    edge<T> *tmp;
+
+    if(this->BF(startingVertex)==1)
+    {
+
+        T *s=NULL;
+        s = new T [numVer];
+        int i=0;
+
+        for(int j=0; j<numVer; j++)
+        {
+            cout<<V[j].getMyVertex()<<": ";
+            tmp=V[j].getFirst();
+
+
+            for(int k=j;k!=-1;k=predecessor[k])
+                s[i++]=V[k].getMyVertex();
+
+            while(i)
+                cout<<s[--i]<<" ";
+
+                cout<<"$"<<cost[j]<<endl;
+        }
+    delete [] s;
+    }
+    else
+        cout << "Negative cycle found!" << endl;
+
+
+        for(int j=0; j<numVer; j++)
+            {
+                if(cost[j]<0)
+                {
+                    cout << "Negative cycle found!" << endl;
+                    return;
+                }
+            }
+
+
+}
+
 template <typename T>
 void Graph<T>::initialize()
 {
@@ -174,7 +219,7 @@ void Graph<T>::testingArguments()
     numVer=5;
     numEdg=7;
 
-    V = new Vertex<char> [numVer];
+    V = new Vertex<T> [numVer];
     cost = new int [numVer];
     predecessor = new int [numVer];
 
@@ -182,35 +227,40 @@ void Graph<T>::testingArguments()
 
 
 
-    V[0].setMyVertex('a');
+    V[0].setMyVertex(0);
     V[0].setMyNumber(0);
 
-    V[1].setMyVertex('b');
+    V[1].setMyVertex(1);
     V[1].setMyNumber(1);
 
-    V[2].setMyVertex('b');
+    V[2].setMyVertex(2);
     V[2].setMyNumber(2);
 
-    V[3].setMyVertex('d');
+    V[3].setMyVertex(3);
     V[3].setMyNumber(3);
 
-    V[4].setMyVertex('e');
+    V[4].setMyVertex(4);
     V[4].setMyNumber(4);
 
 
-    V[0].addNewElement('b', 1, 1);
-    V[0].addNewElement('c', 1, 2);
-    V[0].addNewElement('d', 1, 3);
-    V[2].addNewElement('b', 1, 1);
-    V[1].addNewElement('e', 3, 4);
-    V[1].addNewElement('d', 10, 3);
-    V[2].addNewElement('d', 5, 3);
+    V[0].addNewElement(1, 1, 1);
+    V[0].addNewElement(2, 1, 2);
+    V[0].addNewElement(3, 1, 3);
+    V[2].addNewElement(1, 1, 1);
+    V[1].addNewElement(4, 3, 4);
+    V[1].addNewElement(3, 10, 3);
+    V[2].addNewElement(3, 5, 3);
+
+}
+
+void Graph<T>::showGraph()
+{
 
 }
 
 
 
 template class Graph<int>;
-template class Graph<double>;
+/*template class Graph<double>;
 template class Graph<string>;
-template class Graph<char>;
+template class Graph<char>;*/
