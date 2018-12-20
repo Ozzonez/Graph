@@ -11,7 +11,7 @@ struct edge
     int weight;
     int number_vertex;
     };
-
+//Class that holds vertex's number and neighbours
 template <typename T>
 class Vertex
 {

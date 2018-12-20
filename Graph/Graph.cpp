@@ -6,6 +6,7 @@
 #include "Vertex.h"
 
 using namespace std;
+//Class responsible for graph implementation
 template <typename T>
 int Graph<T>::load()
 {
@@ -26,7 +27,7 @@ int Graph<T>::load()
 
     V = new Vertex<T> [numVer];
     cost = new int [numVer];
-    predecessor = new int [numVer]; // CO Z TYM ????
+    predecessor = new int [numVer];
 
     this->initialize();
 
@@ -71,9 +72,9 @@ Graph<T>::Graph()
 template <typename T>
 Graph<T>::~Graph()
 {
-    delete V;
-    delete cost;
-    delete predecessor;
+    delete [] V;
+    delete [] cost;
+    delete [] predecessor;
 }
 
 template <typename T>
@@ -165,6 +166,46 @@ template <typename T>
 int* Graph<T>::getCost()
 {
     return cost;
+}
+
+template <typename T>
+void Graph<T>::testingArguments()
+{
+    numVer=5;
+    numEdg=7;
+
+    V = new Vertex<char> [numVer];
+    cost = new int [numVer];
+    predecessor = new int [numVer];
+
+    this->initialize();
+
+
+
+    V[0].setMyVertex('a');
+    V[0].setMyNumber(0);
+
+    V[1].setMyVertex('b');
+    V[1].setMyNumber(1);
+
+    V[2].setMyVertex('b');
+    V[2].setMyNumber(2);
+
+    V[3].setMyVertex('d');
+    V[3].setMyNumber(3);
+
+    V[4].setMyVertex('e');
+    V[4].setMyNumber(4);
+
+
+    V[0].addNewElement('b', 1, 1);
+    V[0].addNewElement('c', 1, 2);
+    V[0].addNewElement('d', 1, 3);
+    V[2].addNewElement('b', 1, 1);
+    V[1].addNewElement('e', 3, 4);
+    V[1].addNewElement('d', 10, 3);
+    V[2].addNewElement('d', 5, 3);
+
 }
 
 

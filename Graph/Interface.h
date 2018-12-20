@@ -5,7 +5,7 @@
 #include "Vertex.h"
 
 using namespace std;
-
+//class responsible for menu
 template <typename T>
 class Interface
 {

@@ -27,7 +27,7 @@ class Graph
     Vertex<T>* getV();
     int* getPredecessor();
     int* getCost();
-
+    void testingArguments();
 
 
 };

@@ -71,7 +71,7 @@ void Interface<T>::mainMenu(Graph<T> a)
 
                 cout<<"$"<<a.getCost()[j]<<endl;
             }
-
+            delete [] s;
             }
             else
             cout << "Negative cycle found!" << endl;
